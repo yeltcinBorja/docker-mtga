@@ -1,0 +1,14 @@
+#!/bin/bash
+
+xhost +Local:*
+mkdir MTGA_Downloads
+docker run -v ./MTGA_Downloads:/home/mtga/.wine64_new/drive_c/Program\ Files/Wizards\ of\ the\ Coast/MTGA/MTGA_Data/Downloads \
+-e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native \
+-v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native \
+-v ~/.config/pulse/cookie:/root/.config/pulse/cookie \
+--device /dev/dri/card1 \
+--device /dev/dri/renderD128 \
+--device /dev/snd \
+--env="DISPLAY" \
+--net=host \
+-it yeltcinBorja/docker-mtga /bin/bash
