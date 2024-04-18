@@ -33,8 +33,7 @@ docker run -v ./MTGA_Downloads:/home/mtga/.wine64_new/drive_c/Program\ Files/Wiz
 -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native \
 -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native \
 -v ~/.config/pulse/cookie:/root/.config/pulse/cookie \
---device /dev/dri/card1 \
---device /dev/dri/renderD128 \
+--device /dev/dri \
 --device /dev/snd \
 --env="DISPLAY" \
 --net=host \
@@ -62,8 +61,7 @@ Maps the volume where Downloads folder will go, you need this to permanently kee
 This will allow sound be played on the host from docker-container (Assuming you run PuseAudio)
 
 ```bash
---device /dev/dri/card1
---device /dev/dri/renderD128
+--device /dev/dri
 ```
 This will allow docker-container use your graphics card (OpenGL and drivers)
 
@@ -75,4 +73,7 @@ X11 Communications between host and docker-container
 
 ## Playing MTGA
 
-
+To start MTGA inside the docker-container
+```bash
+wine MTGA.exe
+```
