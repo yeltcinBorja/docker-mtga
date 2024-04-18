@@ -6,8 +6,7 @@ docker run -v ./MTGA_Downloads:/home/mtga/.wine64_new/drive_c/Program\ Files/Wiz
 -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native \
 -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native \
 -v ~/.config/pulse/cookie:/root/.config/pulse/cookie \
---device /dev/dri/card1 \
---device /dev/dri/renderD128 \
+--device /dev/dri \
 --device /dev/snd \
 --env="DISPLAY" \
 --net=host \

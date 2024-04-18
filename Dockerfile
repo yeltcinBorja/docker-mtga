@@ -60,7 +60,7 @@ RUN wine msiexec /i wine-mono-7.4.0-x86.msi \
 	&& wine msiexec /i MTGAInstaller* \
 	&& wineboot -r
 
-#	Remove MSI files and create a sym link to MTGA.exe
+#	Remove MSI files
 RUN rm MTGAInstaller* \
 	&& rm wine-mono-7.4.0-x86.msi
 
