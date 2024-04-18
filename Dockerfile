@@ -59,3 +59,10 @@ RUN wineboot -i
 RUN wine msiexec /i wine-mono-7.4.0-x86.msi \
 	&& wine msiexec /i MTGAInstaller* \
 	&& wineboot -r
+
+#	Remove MSI files and create a sym link to MTGA.exe
+RUN rm MTGAInstaller* \
+	&& rm wine-mono-7.4.0-x86.msi
+
+#	Switch to the MTGA directory
+WORKDIR /home/mtga/.wine64_new/drive_c/Program\ Files/Wizards\ of\ the\ Coast/MTGA/
