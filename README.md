@@ -47,29 +47,29 @@ bash run_docker-mtga
 
 ## Docker run Parameters
 
+Maps the volume where Downloads folder will go, you need this to permanently keep your downloaded Assets and Data to avoid re-downloading it every time you start the docker-container
 ```bash
 -v ./MTGA_Downloads:/home/mtga/.wine64_new/drive_c/Program\ Files/Wizards\ of\ the\ Coast/MTGA/MTGA_Data/Downloads
 ```
-Maps the volume where Downloads folder will go, you need this to permanently keep your downloaded Assets and Data to avoid re-downloading it every time you start the docker-container
 
+This will allow sound be played on the host from docker-container (Assuming you run PuseAudio)
 ```bash
 -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native 
 -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native 
 -v ~/.config/pulse/cookie:/root/.config/pulse/cookie 
 --device /dev/snd 
 ```
-This will allow sound be played on the host from docker-container (Assuming you run PuseAudio)
 
+This will allow docker-container use your graphics card (OpenGL and drivers)
 ```bash
 --device /dev/dri
 ```
-This will allow docker-container use your graphics card (OpenGL and drivers)
 
+X11 Communications between host and docker-container
 ```bash
 --env="DISPLAY"
 --net=host
 ```
-X11 Communications between host and docker-container
 
 ## Playing MTGA
 
