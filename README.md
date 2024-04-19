@@ -6,6 +6,7 @@ The docker image that allows you to play Magic The Gathering Arena on Linux
 
 Basically I got tired of deleting and cleaning up the MTGA Install every time the MTGALauncher needs to update itself, which in most of the cases breaks Wine Installation
 
+DockerHub Repo: https://hub.docker.com/r/yeltcinborja/docker-mtga
 
 ## Installation
 
