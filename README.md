@@ -13,7 +13,7 @@ DockerHub Repo: https://hub.docker.com/r/yeltcinborja/docker-mtga
 ```bash
 git clone https://github.com/yeltcinBorja/docker-mtga.git
 cd docker-mtga
-docker build -t yeltcinBorja/docker-mtga .
+docker buildx build -t yeltcinBorja/docker-mtga .
 ```
 
 ## Usage
